@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     
      <table id='1'>
-      <region page='2' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='2' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='0' start-col='0' end-row='1' end-col='0'>
             <bounding-box x1='45' y1='675' x2='92' y2='683'/>
             <content>Characteristic</content>
@@ -419,7 +419,7 @@
    </table>
     
     <table id="2">
-        <region col-increment="0" id="1" page="2" row-increment="0">
+        <region col-increment="0" id="1" pageArea="2" row-increment="0">
             <cell end-row="2" id="1" start-col="0" start-row="0">
                 <bounding-box x1="45" x2="81" y1="439" y2="456"/>
                 <content>Age group
@@ -1333,7 +1333,7 @@
     </table>
     
     <table id="3">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell end-row="2" id="1" start-col="0" start-row="0">
                 <bounding-box x1="36" x2="57" y1="660" y2="686"/>
                 <content>Age
@@ -1845,7 +1845,7 @@ group
     </table>
     
     <table id="4">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell end-row="2" id="1" start-col="0" start-row="0">
                 <bounding-box x1="36" x2="57" y1="488" y2="514"/>
                 <content>Age
@@ -2761,7 +2761,7 @@ group
     </table>
     
      <table id="5">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell end-row="2" id="1" start-col="0" end-col="0" start-row="0">
                 <bounding-box x1="36" x2="57" y1="235" y2="261"/>
                 <content>Age
@@ -3273,7 +3273,7 @@ group
     </table>
     
         <table id="6">
-        <region col-increment="0" id="2" page="4" row-increment="0">
+        <region col-increment="0" id="2" pageArea="4" row-increment="0">
             <cell end-row="1" id="1" start-col="0" start-row="0">
                 <bounding-box x1="44" x2="79" y1="664" y2="672"/>
                 <content>State/Area</content>

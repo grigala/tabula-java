@@ -2,7 +2,7 @@
 <document filename="bm_us-024-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="-1" id="1" page="2" row-increment="-1">
+        <region col-increment="-1" id="1" pageArea="2" row-increment="-1">
             <cell end-row="3" id="1" start-col="1" start-row="1">
                 <bounding-box x1="36" x2="83" y1="662" y2="670"/>
                 <content>Characteristic</content>
@@ -1975,7 +1975,7 @@ Alaska Native</content>
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" page="3" row-increment="-1">
+        <region col-increment="0" id="1" pageArea="3" row-increment="-1">
             <cell end-col="5" id="1" start-col="1" start-row="1">
                 <bounding-box x1="256" x2="273" y1="699" y2="707"/>
                 <content>2007</content>
@@ -3952,7 +3952,7 @@ odds ratio</content>
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" page="5" row-increment="0">
+        <region col-increment="0" id="1" pageArea="5" row-increment="0">
             <cell end-row="1" id="1" start-col="0" start-row="0">
                 <bounding-box x1="45" x2="95" y1="661" y2="669"/>
                 <content>Characteristics</content>
@@ -5766,7 +5766,7 @@ Native</content>
         </region>
     </table>
     <table id="4">
-        <region col-increment="0" id="2" page="6" row-increment="0">
+        <region col-increment="0" id="2" pageArea="6" row-increment="0">
             <cell end-row="1" id="1" start-col="0" start-row="0">
                 <bounding-box x1="35" x2="86" y1="666" y2="674"/>
                 <content>Characteristics</content>

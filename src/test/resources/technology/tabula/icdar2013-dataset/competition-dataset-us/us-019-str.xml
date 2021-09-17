@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-019-str.xml'>
    <table id='1'>
-      <region id='1' col-increment='0' row-increment='1' page='2'>
+      <region id='1' col-increment='0' row-increment='1' pageArea='2'>
          <cell id='18' start-row='-1' start-col='0'>
             <bounding-box x1='40' y1='729' x2='72' y2='739'/>
             <content>Variable</content>
@@ -145,7 +145,7 @@ sources per capita in constant dollars</content>
       </region>
    </table>
    <table id='2'>
-      <region id='1' col-increment='0' row-increment='0' page='3'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='3'>
          <cell id='63' start-row='0' start-col='1' end-col='10'>
             <bounding-box x1='385' y1='719' x2='454' y2='729'/>
             <content>Leadtime(years)</content>
@@ -1177,7 +1177,7 @@ sources per capita in constant dollars</content>
       </region>
    </table>
    <table id='3'>
-      <region id='1' col-increment='0' row-increment='0' page='4'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='4'>
          <cell id='27' start-row='0' start-col='1' end-col='4'>
             <bounding-box x1='376' y1='732' x2='425' y2='742'/>
             <content>Yearofdata</content>
@@ -1397,7 +1397,7 @@ sources per capita in constant dollars</content>
       </region>
    </table>
    <table id='4'>
-      <region id='1' col-increment='0' row-increment='0' page='4'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='4'>
          <cell id='3' start-row='0' start-col='1' end-col='4'>
             <bounding-box x1='367' y1='444' x2='436' y2='454'/>
             <content>Leadtime(years)</content>

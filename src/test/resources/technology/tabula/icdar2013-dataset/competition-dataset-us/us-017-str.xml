@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-017-6-str.xml'>
    <table id='1'>
-      <region id='1' col-increment='0' row-increment='-1' page='2'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='2'>
          <cell id='2' start-row='1' end-row='2' start-col='0'>
             <bounding-box x1='42' y1='695' x2='60' y2='704'/>
             <content>Year</content>
@@ -1107,7 +1107,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' col-increment='0' row-increment='-1' page='3'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='3'>
          <cell id='2' start-row='1' end-row='2' start-col='0'>
             <bounding-box x1='36' y1='695' x2='53' y2='704'/>
             <content>Year</content>
@@ -2205,7 +2205,7 @@
       </region>
    </table>
    <table id='3'>
-      <region id='1' col-increment='0' row-increment='-1' page='4'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='4'>
          <cell id='2' start-row='1' end-row='2' start-col='0'>
             <bounding-box x1='42' y1='695' x2='60' y2='704'/>
             <content>Year</content>
@@ -3201,7 +3201,7 @@ ungraded</content>
       </region>
    </table>
    <table id='4'>
-      <region id='1' col-increment='0' row-increment='-1' page='5'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='5'>
          <cell id='2' start-row='1' start-col='2' end-col='7'>
             <bounding-box x1='350' y1='709' x2='408' y2='719'/>
             <content>Race/ethnicity</content>
@@ -4102,7 +4102,7 @@ races</content>
       </region>
    </table>
    <table id='5'>
-      <region id='1' col-increment='0' row-increment='-1' page='6'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='6'>
          <cell id='2' start-row='1' start-col='2' end-col='7'>
             <bounding-box x1='356' y1='709' x2='415' y2='719'/>
             <content>Race/ethnicity</content>
@@ -5003,7 +5003,7 @@ races</content>
       </region>
    </table>
    <table id='6'>
-      <region id='1' col-increment='0' row-increment='-1' page='7'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='7'>
  	<cell id='2' start-row='1' start-col='2' end-col='7'>
             <bounding-box x1='350' y1='709' x2='407' y2='718'/>
             <content>Race/ethnicity</content>

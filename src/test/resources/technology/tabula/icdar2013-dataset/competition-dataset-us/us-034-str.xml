@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-034-str.xml'>
    <table id='1'>
-      <region page='2' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='2' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='2' end-col='1'>
             <bounding-box x1='93' y1='659' x2='165' y2='671'/>
             <content>Proportion</content>
@@ -731,7 +731,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='
       </region>
    </table>
    <table id='2'>
-      <region page='2' id='2' col-increment='0' row-increment='0'>
+      <region pageArea='2' id='2' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='2' end-col='1'>
             <bounding-box x1='107' y1='392' x2='179' y2='404'/>
             <content>Proportion</content>

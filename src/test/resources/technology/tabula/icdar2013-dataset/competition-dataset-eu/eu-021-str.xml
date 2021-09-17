@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename="bm_eu-021-str.xml">
     <table id="1">
-        <region col-increment="0" id="1" row-increment="0" page='3'>
+        <region col-increment="0" id="1" row-increment="0" pageArea='3'>
             <cell id="1" start-col="0" end-col="1" start-row="0">
                 <bounding-box x1="94" x2="171" y1="487" y2="496"/>
                 <content>Treatment/Therapy</content>
@@ -988,7 +988,7 @@ sinus infection</content>
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" row-increment="0" page='7'>
+        <region col-increment="0" id="1" row-increment="0" pageArea='7'>
             <cell id="1" start-col="0" end-col="1" start-row="0">
                 <bounding-box x1="62" x2="96" y1="500" y2="509"/>
                 <content>Difficulty</content>

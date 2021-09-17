@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-032-str.xml'>
    <table id='1'>
-      <region page='1' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='1' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='174' y1='559' x2='208' y2='569'/>
             <content>Source</content>

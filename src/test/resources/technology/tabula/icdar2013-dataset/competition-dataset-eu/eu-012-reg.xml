@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_eu-012-reg.xml'>
    <table id='1'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='514'/>
          <instruction instr-id='514' subinstr-id='2'/>
          <instruction instr-id='514' subinstr-id='4'/>
@@ -24,7 +24,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='4'>
+      <region id='1' pageArea='4'>
          <instruction instr-id='87'/>
          <instruction instr-id='87' subinstr-id='2'/>
          <instruction instr-id='87' subinstr-id='4'/>
@@ -84,7 +84,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='3'>
-      <region id='1' page='4'>
+      <region id='1' pageArea='4'>
          <instruction instr-id='460'/>
          <instruction instr-id='460' subinstr-id='2'/>
          <instruction instr-id='460' subinstr-id='4'/>
@@ -157,7 +157,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='4'>
-      <region id='1' page='5'>
+      <region id='1' pageArea='5'>
          <instruction instr-id='37'/>
          <instruction instr-id='37' subinstr-id='2'/>
          <instruction instr-id='37' subinstr-id='4'/>
@@ -214,7 +214,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='5'>
-      <region id='1' page='5'>
+      <region id='1' pageArea='5'>
          <instruction instr-id='392'/>
          <instruction instr-id='392' subinstr-id='2'/>
          <instruction instr-id='392' subinstr-id='4'/>

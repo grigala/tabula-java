@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-008-str.xml'>
    <table id='1'>
-      <region id='1' col-increment='0' row-increment='0' page='1'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='1'>
          <cell id='1' start-row='0' start-col='0'>
             <bounding-box x1='98' y1='667' x2='153' y2='678'/>
             <content>Age Cohort</content>
@@ -128,7 +128,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' col-increment='0' row-increment='0' page='3'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='3'>
          <cell id='1' start-row='0' start-col='0'>
             <bounding-box x1='127' y1='642' x2='196' y2='653'/>
             <content>Sample Group</content>

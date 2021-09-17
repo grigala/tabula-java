@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-035-str.xml'>
    <table id='1'>
-      <region page='2' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='2' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='2' end-col='1'>
             <bounding-box x1='92' y1='654' x2='164' y2='666'/>
             <content>Age groups</content>
@@ -261,7 +261,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='
    </table>
 
    <table id='2'>
-      <region page='3' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='3' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='74' y1='683' x2='90' y2='692'/>
             <content>Age</content>
@@ -675,7 +675,7 @@ population</content>
             <instruction instr-id='344' subinstr-id='2'/>
          </cell>
       </region>
-      <region page='3' id='2' col-increment='2' row-increment='0'>
+      <region pageArea='3' id='2' col-increment='2' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='234' y1='683' x2='249' y2='692'/>
             <content>Age</content>
@@ -1089,7 +1089,7 @@ population</content>
             <instruction instr-id='344' subinstr-id='6'/>
          </cell>
       </region>
-      <region page='3' id='3' col-increment='4' row-increment='0'>
+      <region pageArea='3' id='3' col-increment='4' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='369' y1='683' x2='385' y2='692'/>
             <content>Age</content>
@@ -1446,7 +1446,7 @@ population</content>
    </table>
 
    <table id='3'>
-      <region page='4' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='4' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='145' y1='668' x2='188' y2='680'/>
             <content>Status</content>

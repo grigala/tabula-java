@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-020-str.xml'>
    <table id='1'>
-      <region id='1' col-increment='0' row-increment='0' page='2'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='2'>
          <cell id='42' start-row='0' start-col='0'>
             <bounding-box x1='38' y1='642' x2='100' y2='651'/>
             <content>Education system</content>
@@ -1536,7 +1536,7 @@ response rate</content>
       </region>
    </table>
    <table id='2'>
-      <region id='1' col-increment='0' row-increment='0' page='3'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='3'>
          <cell id='5' start-row='1' start-col='0'>
             <bounding-box x1='56' y1='631' x2='100' y2='639'/>
             <content>Alberta-CAN</content>
@@ -2054,7 +2054,7 @@ responserate</content>
       </region>
    </table>
    <table id='3'>
-      <region id='1' col-increment='0' row-increment='0' page='4'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='4'>
          <cell id='4' start-row='0' start-col='0'>
             <bounding-box x1='38' y1='664' x2='100' y2='673'/>
             <content>Educationsystem</content>
@@ -3696,7 +3696,7 @@ assessed</content>
       </region>
    </table>
    <table id='4'>
-      <region id='1' col-increment='0' row-increment='0' page='5'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='5'>
          <cell id='8' start-row='1' start-col='0'>
             <bounding-box x1='56' y1='653' x2='100' y2='661'/>
             <content>Alberta-CAN</content>

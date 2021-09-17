@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-018-6-reg.xml'>
    <table id='1'>
-      <region id='1' page='1'>
+      <region id='1' pageArea='1'>
          <instruction instr-id='256'/>
          <instruction instr-id='258'/>
          <instruction instr-id='260'/>
@@ -654,7 +654,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='2'>
+      <region id='1' pageArea='2'>
          <instruction instr-id='220'/>
          <instruction instr-id='222'/>
          <instruction instr-id='222' subinstr-id='2'/>
@@ -1249,7 +1249,7 @@
       </region>
    </table>
    <table id='3'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='131'/>
          <instruction instr-id='133'/>
          <instruction instr-id='135'/>
@@ -1560,7 +1560,7 @@
       </region>
    </table>
    <table id='4'>
-      <region id='1' page='4'>
+      <region id='1' pageArea='4'>
          <instruction instr-id='150'/>
          <instruction instr-id='152'/>
          <instruction instr-id='152' subinstr-id='2'/>
@@ -1835,7 +1835,7 @@
       </region>
    </table>
    <table id='5'>
-      <region id='1' page='5'>
+      <region id='1' pageArea='5'>
          <instruction instr-id='62'/>
          <instruction instr-id='62' subinstr-id='2'/>
          <instruction instr-id='62' subinstr-id='4'/>
@@ -1988,7 +1988,7 @@
       </region>
    </table>
    <table id='6'>
-      <region id='1' page='6'>
+      <region id='1' pageArea='6'>
          <instruction instr-id='123'/>
          <instruction instr-id='125'/>
          <instruction instr-id='125' subinstr-id='2'/>
@@ -2396,7 +2396,7 @@
       </region>
    </table>
    <table id='7'>
-      <region id='1' page='7'>
+      <region id='1' pageArea='7'>
          <instruction instr-id='125'/>
          <instruction instr-id='127'/>
          <instruction instr-id='129'/>

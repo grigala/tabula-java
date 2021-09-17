@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_us-032-reg.xml'>
    <table id='1'>
-      <region id='1' page='1'>
+      <region id='1' pageArea='1'>
          <instruction instr-id='499'/>
          <instruction instr-id='503'/>
          <instruction instr-id='503' subinstr-id='2'/>

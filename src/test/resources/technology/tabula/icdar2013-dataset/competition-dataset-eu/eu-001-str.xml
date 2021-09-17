@@ -2,7 +2,7 @@
 <document filename="bm_eu-001-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" page="1" row-increment="0">
+        <region col-increment="0" id="1" pageArea="1" row-increment="0">
             <cell end-col="3" id="1" start-col="1" start-row="0">
                 <bounding-box x1="316" x2="441" y1="533" y2="543"/>
                 <content>THRESHOLD FOR RELEASES</content>
@@ -234,7 +234,7 @@ kg/year</content>
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" page="1" row-increment="0">
+        <region col-increment="0" id="1" pageArea="1" row-increment="0">
             <cell end-col="3" id="1" start-col="1" start-row="0">
                 <bounding-box x1="326" x2="451" y1="405" y2="415"/>
                 <content>THRESHOLD FOR RELEASES</content>
@@ -606,7 +606,7 @@ compounds (NMVOC)</content>
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" page="1" row-increment="0">
+        <region col-increment="0" id="1" pageArea="1" row-increment="0">
             <cell end-col="3" id="1" start-col="1" start-row="0">
                 <bounding-box x1="320" x2="445" y1="197" y2="207"/>
                 <content>THRESHOLD FOR RELEASES</content>
@@ -884,7 +884,7 @@ kg/year</content>
         </region>
     </table>
     <table id="4">
-        <region col-increment="0" id="1" page="2" row-increment="0">
+        <region col-increment="0" id="1" pageArea="2" row-increment="0">
             <cell end-col="3" id="1" start-col="1" start-row="0">
                 <bounding-box x1="333" x2="458" y1="737" y2="747"/>
                 <content>THRESHOLD FOR RELEASES</content>
@@ -1469,7 +1469,7 @@ kg/year</content>
         </region>
     </table>
     <table id="5">
-        <region col-increment="0" id="1" page="2" row-increment="0">
+        <region col-increment="0" id="1" pageArea="2" row-increment="0">
             <cell end-col="3" id="1" start-col="1" start-row="0">
                 <bounding-box x1="332" x2="457" y1="436" y2="446"/>
                 <content>THRESHOLD FOR RELEASES</content>
@@ -2130,7 +2130,7 @@ kg/year</content>
         </region>
     </table>
     <table id="6">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell end-col="3" id="1" start-col="1" start-row="0">
                 <bounding-box x1="346" x2="471" y1="737" y2="747"/>
                 <content>THRESHOLD FOR RELEASES</content>
@@ -2691,7 +2691,7 @@ BTEX)</content>
         </region>
     </table>
     <table id="7">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell id="1" start-col="1" end-col="3" start-row="0">
                 <bounding-box x1="346" x2="471" y1="439" y2="449"/>
                 <content>THRESHOLD FOR RELEASES</content>

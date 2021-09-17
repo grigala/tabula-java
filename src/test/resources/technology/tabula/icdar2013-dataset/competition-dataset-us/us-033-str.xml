@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd" filename='bm_us-033-str.xml'>
    <table id='1'>
-      <region page='1' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='1' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='2' end-col='1'>
             <bounding-box x1='74' y1='488' x2='133' y2='498'/>
             <content>Age (years)</content>
@@ -728,7 +728,7 @@ population</content>
       </region>
    </table>
    <table id='2'>
-      <region page='2' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='2' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='72' y1='416' x2='136' y2='428'/>
             <content>Age Group</content>
@@ -812,7 +812,7 @@ population</content>
       </region>
    </table>
    <table id='3'>
-      <region page='2' id='1' col-increment='0' row-increment='0'>
+      <region pageArea='2' id='1' col-increment='0' row-increment='0'>
          <cell id='1' start-row='1' start-col='1' end-row='1' end-col='1'>
             <bounding-box x1='71' y1='224' x2='136' y2='236'/>
             <content>Age Group</content>

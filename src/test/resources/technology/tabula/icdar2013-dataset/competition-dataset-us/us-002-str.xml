@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-002-str.xml'>
    <table id='1'>
-      <region id='1' col-increment='0' row-increment='0' page='1'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='1'>
          <cell id='1' start-row='0' start-col='3' end-col='7'>
             <bounding-box x1='400' y1='571' x2='473' y2='581'/>
             <content>Amount borrowed</content>
@@ -1470,7 +1470,7 @@ degree by 2003</content>
       </region>
    </table>
    <table id='2'>
-      <region id='1' col-increment='0' row-increment='0' page='3'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='3'>
          <cell id='1' start-row='0' start-col='1' end-col='4'>
             <bounding-box x1='287' y1='649' x2='377' y2='659'/>
             <content>Percent who borrowed</content>

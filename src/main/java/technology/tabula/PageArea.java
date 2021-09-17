@@ -63,7 +63,7 @@ public class PageArea extends Rectangle {
         float minimumCharWidth = getMinimumCharWidthFrom(areaTextElements);
         float minimumCharHeight = getMinimumCharHeightFrom(areaTextElements);
 
-        final PageArea pageArea = PageArea.Builder.newInstance()
+        final PageArea pageArea = PageBuilder.newInstance()
                 .withPageDims(PageDims.of(area.getTop(), area.getLeft(), (float) area.getWidth(), (float) area.getHeight()))
                 .withRotation(rotation)
                 .withNumber(number)

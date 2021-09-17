@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='us-020-new-regions-reg.xml'>
    <table id='1'>
-      <region id='1' page='2'>
+      <region id='1' pageArea='2'>
          <instruction instr-id='480'/>
          <instruction instr-id='480' subinstr-id='2'/>
          <instruction instr-id='480' subinstr-id='4'/>
@@ -1160,7 +1160,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='202'/>
          <instruction instr-id='202' subinstr-id='2'/>
          <instruction instr-id='202' subinstr-id='4'/>
@@ -1571,7 +1571,7 @@
       </region>
    </table>
    <table id='3'>
-      <region id='1' page='4'>
+      <region id='1' pageArea='4'>
          <instruction instr-id='595'/>
          <instruction instr-id='595' subinstr-id='2'/>
          <instruction instr-id='595' subinstr-id='4'/>
@@ -3142,7 +3142,7 @@
       </region>
    </table>
    <table id='4'>
-      <region id='1' page='5'>
+      <region id='1' pageArea='5'>
          <instruction instr-id='227'/>
          <instruction instr-id='227' subinstr-id='2'/>
          <instruction instr-id='227' subinstr-id='4'/>

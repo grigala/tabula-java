@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-017-6-reg.xml'>
    <table id='1'>
-      <region id='1' page='2'>
+      <region id='1' pageArea='2'>
          <instruction instr-id='161'/>
          <instruction instr-id='161' subinstr-id='2'/>
          <instruction instr-id='163'/>
@@ -510,7 +510,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='233'/>
          <instruction instr-id='233' subinstr-id='2'/>
          <instruction instr-id='233' subinstr-id='4'/>
@@ -791,7 +791,7 @@
       </region>
    </table>
    <table id='3'>
-      <region id='1' page='4'>
+      <region id='1' pageArea='4'>
          <instruction instr-id='192'/>
          <instruction instr-id='192' subinstr-id='2'/>
          <instruction instr-id='194'/>
@@ -1046,7 +1046,7 @@
       </region>
    </table>
    <table id='4'>
-      <region id='1' page='5'>
+      <region id='1' pageArea='5'>
          <instruction instr-id='127'/>
          <instruction instr-id='127' subinstr-id='2'/>
          <instruction instr-id='127' subinstr-id='4'/>
@@ -1439,7 +1439,7 @@
       </region>
    </table>
    <table id='5'>
-      <region id='1' page='6'>
+      <region id='1' pageArea='6'>
          <instruction instr-id='125'/>
          <instruction instr-id='125' subinstr-id='2'/>
          <instruction instr-id='125' subinstr-id='4'/>
@@ -1842,7 +1842,7 @@
       </region>
    </table>
    <table id='6'>
-      <region id='1' page='7'>
+      <region id='1' pageArea='7'>
          <instruction instr-id='127'/>
          <instruction instr-id='127' subinstr-id='2'/>
          <instruction instr-id='127' subinstr-id='4'/>

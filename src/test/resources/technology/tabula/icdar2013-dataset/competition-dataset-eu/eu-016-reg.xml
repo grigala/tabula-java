@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_eu-016-reg.xml'>
    <table id='1'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='2182'/>
          <instruction instr-id='2182' subinstr-id='2'/>
          <instruction instr-id='2182' subinstr-id='4'/>

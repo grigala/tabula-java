@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-008-reg.xml'>
    <table id='1'>
-      <region id='1' page='1'>
+      <region id='1' pageArea='1'>
          <instruction instr-id='45'/>
          <instruction instr-id='45' subinstr-id='2'/>
          <instruction instr-id='45' subinstr-id='4'/>
@@ -65,7 +65,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='52'/>
          <instruction instr-id='52' subinstr-id='2'/>
          <instruction instr-id='52' subinstr-id='4'/>

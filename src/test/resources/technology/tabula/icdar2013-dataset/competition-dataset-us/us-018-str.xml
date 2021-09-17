@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename='bm_us-018-6-str.xml'>
    <table id='1'>
-      <region id='1' col-increment='0' row-increment='0' page='1'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='1'>
         <cell id='414' start-row='0' start-col='1' end-col='6'>
             <bounding-box x1='243' y1='721' x2='269' y2='731'/>
             <content>Actual</content>
@@ -2525,7 +2525,7 @@
       </region>
    </table>
    <table id='2'>
-      <region id='1' col-increment='0' row-increment='0' page='2'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='2'>
 	 <cell id='1' start-row='0' start-col='1' end-col='8'>
             <bounding-box x1='314' y1='721' x2='404' y2='731'/>
             <content>Projected—Continued</content>
@@ -4817,7 +4817,7 @@
       </region>
    </table>
    <table id='3'>
-      <region id='1' col-increment='0' row-increment='-1' page='3'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='3'>
 	<cell id='1' start-row='1' start-col='2' end-col='4'>
             <bounding-box x1='402' y1='721' x2='441' y2='731'/>
             <content>Projected</content>
@@ -5970,7 +5970,7 @@ to 2008–09</content>
       </region>
    </table>
    <table id='4'>
-      <region id='1' col-increment='0' row-increment='-1' page='4'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='4'>
          <cell id='2' start-row='1' start-col='1' end-col='3'>
             <bounding-box x1='217' y1='709' x2='298' y2='719'/>
             <content>Number of teachers</content>
@@ -6757,7 +6757,7 @@ to 2008–09</content>
       </region>
    </table>
    <table id='5'>
-      <region id='1' col-increment='0' row-increment='0' page='5'>
+      <region id='1' col-increment='0' row-increment='0' pageArea='5'>
          <cell id='3' start-row='0' start-col='1'>
             <bounding-box x1='283' y1='721' x2='303' y2='731'/>
             <content>Total</content>
@@ -7203,7 +7203,7 @@ to 2008–09</content>
       </region>
    </table>
    <table id='6'>
-      <region id='1' col-increment='0' row-increment='-1' page='6'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='6'>
          <cell id='1' start-row='1' start-col='2' end-col='5'>
             <bounding-box x1='365' y1='721' x2='450' y2='731'/>
             <content>Current expenditures</content>
@@ -7880,7 +7880,7 @@ in fall enrollment</content>
       </region>
    </table>
    <table id='7'>
-      <region id='1' col-increment='0' row-increment='-1' page='7'>
+      <region id='1' col-increment='0' row-increment='-1' pageArea='7'>
          <cell id='56' start-row='1' start-col='2' end-col='5'>
             <bounding-box x1='361' y1='721' x2='446' y2='731'/>
             <content>Current expenditures</content>

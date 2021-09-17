@@ -2,7 +2,7 @@
 <document filename="bm_eu-004-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" page="2" row-increment="0">
+        <region col-increment="0" id="1" pageArea="2" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="153" x2="203" y1="710" y2="743"/>
                 <content>per capita
@@ -670,7 +670,7 @@ per outlet
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" page="2" row-increment="0">
+        <region col-increment="0" id="1" pageArea="2" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="152" x2="202" y1="375" y2="399"/>
                 <content>population
@@ -1287,7 +1287,7 @@ per outlet
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="160" x2="210" y1="236" y2="259"/>
                 <content>population
@@ -1462,7 +1462,7 @@ enterprise
         </region>
     </table>
     <table id="4">
-        <region col-increment="0" id="1" page="4" row-increment="0">
+        <region col-increment="0" id="1" pageArea="4" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="256" x2="345" y1="430" y2="466"/>
                 <content>% growth in total
@@ -1792,7 +1792,7 @@ retail sales volume,
         </region>
     </table>
     <table id="5">
-        <region col-increment="0" id="2" page="6" row-increment="0">
+        <region col-increment="0" id="2" pageArea="6" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="206" x2="244" y1="642" y2="666"/>
                 <content>Current
@@ -2250,7 +2250,7 @@ and Daily Goods</content>
         </region>
     </table>
     <table id="6">
-        <region col-increment="0" id="1" page="7" row-increment="0">
+        <region col-increment="0" id="1" pageArea="7" row-increment="0">
             <cell end-col="2" id="1" start-col="1" start-row="0">
                 <bounding-box x1="225" x2="291" y1="578" y2="589"/>
                 <content>hypermarkets</content>
@@ -2794,7 +2794,7 @@ since 1990</content>
         </region>
     </table>
     <table id="7">
-        <region col-increment="0" id="1" page="8" row-increment="0">
+        <region col-increment="0" id="1" pageArea="8" row-increment="0">
             <cell end-col="2" id="1" start-col="1" start-row="0">
                 <bounding-box x1="236" x2="258" y1="428" y2="439"/>
                 <content>1996</content>
@@ -3386,7 +3386,7 @@ stores</content>
         </region>
     </table>
     <table id="8">
-        <region col-increment="0" id="1" page="9" row-increment="0">
+        <region col-increment="0" id="1" pageArea="9" row-increment="0">
             <cell end-col="2" id="1" start-col="1" start-row="0">
                 <bounding-box x1="239" x2="344" y1="694" y2="705"/>
                 <content>number of franchisors</content>
@@ -3886,7 +3886,7 @@ stores</content>
         </region>
     </table>
     <table id="9">
-        <region col-increment="0" id="1" page="10" row-increment="0">
+        <region col-increment="0" id="1" pageArea="10" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="247" x2="269" y1="720" y2="731"/>
                 <content>1994</content>
@@ -4223,7 +4223,7 @@ stores</content>
         </region>
     </table>
     <table id="10">
-        <region col-increment="0" id="2" page="11" row-increment="0">
+        <region col-increment="0" id="2" pageArea="11" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="148" x2="169" y1="643" y2="654"/>
                 <content>1997</content>
@@ -4668,7 +4668,7 @@ Auchan 19; Leclerc 10</content>
         </region>
     </table>
     <table id="11">
-        <region col-increment="0" id="2" page="12" row-increment="0">
+        <region col-increment="0" id="2" pageArea="12" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="287" x2="369" y1="532" y2="543"/>
                 <content>Country of origin</content>
@@ -5194,7 +5194,7 @@ Auchan 19; Leclerc 10</content>
         </region>
     </table>
     <table id="12">
-        <region col-increment="0" id="1" page="14" row-increment="0">
+        <region col-increment="0" id="1" pageArea="14" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="194" x2="248" y1="707" y2="743"/>
                 <content>World food

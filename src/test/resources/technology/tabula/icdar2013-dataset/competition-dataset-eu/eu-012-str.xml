@@ -2,7 +2,7 @@
 <document filename="bm_eu-012-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" page="3" row-increment="0">
+        <region col-increment="0" id="1" pageArea="3" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="169" x2="206" y1="274" y2="286"/>
                 <content>Finland</content>
@@ -103,7 +103,7 @@
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" page="4" row-increment="0">
+        <region col-increment="0" id="1" pageArea="4" row-increment="0">
             <cell id="1" start-col="2" start-row="0">
                 <bounding-box x1="237" x2="293" y1="608" y2="619"/>
                 <content>Agriculture</content>
@@ -394,7 +394,7 @@
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" page="4" row-increment="0">
+        <region col-increment="0" id="1" pageArea="4" row-increment="0">
             <cell id="1" start-col="1" end-col="4" start-row="0">
                 <bounding-box x1="160" x2="197" y1="235" y2="246"/>
                 <content>Finland</content>
@@ -693,7 +693,7 @@
         </region>
     </table>
     <table id="4">
-        <region col-increment="0" id="1" page="5" row-increment="0">
+        <region col-increment="0" id="1" pageArea="5" row-increment="0">
             <cell id="1" start-col="1" end-col="3" start-row="0">
                 <bounding-box x1="158" x2="195" y1="721" y2="733"/>
                 <content>Finland</content>
@@ -931,7 +931,7 @@
         </region>
     </table>
     <table id="5">
-        <region col-increment="0" id="1" page="5" row-increment="0">
+        <region col-increment="0" id="1" pageArea="5" row-increment="0">
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="76" x2="116" y1="344" y2="355"/>
                 <content>Country</content>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename="bm_eu-015-reg.xml">
     <table id="1">
-        <region id="1" page="1">
+        <region id="1" pageArea="1">
             <instruction instr-id="51"/>
             <instruction instr-id="51" subinstr-id="2"/>
             <instruction instr-id="56"/>
@@ -30,7 +30,7 @@
         </region>
     </table>
     <table id="2">
-        <region id="1" page="1">
+        <region id="1" pageArea="1">
             <instruction instr-id="147"/>
             <instruction instr-id="147" subinstr-id="2"/>
             <instruction instr-id="152"/>
@@ -57,7 +57,7 @@
         </region>
     </table>
     <table id="3">
-        <region id="1" page="2">
+        <region id="1" pageArea="2">
             <instruction instr-id="65"/>
             <instruction instr-id="65" subinstr-id="2"/>
             <instruction instr-id="94"/>
@@ -126,7 +126,7 @@
         </region>
     </table>
     <table id="4">
-        <region id="1" page="2">
+        <region id="1" pageArea="2">
             <instruction instr-id="69"/>
             <instruction instr-id="73"/>
             <instruction instr-id="77"/>
@@ -198,7 +198,7 @@
         </region>
     </table>
     <table id="5">
-        <region id="1" page="2">
+        <region id="1" pageArea="2">
             <instruction instr-id="81"/>
             <instruction instr-id="85"/>
             <instruction instr-id="89"/>

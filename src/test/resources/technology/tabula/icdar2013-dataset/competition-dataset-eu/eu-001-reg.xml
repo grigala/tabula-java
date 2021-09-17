@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_eu-001-reg.xml'>
    <table id='1'>
-      <region id='1' page='1'>
+      <region id='1' pageArea='1'>
          <instruction instr-id='325'/>
          <instruction instr-id='328'/>
          <instruction instr-id='328' subinstr-id='2'/>
@@ -118,7 +118,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='1'>
+      <region id='1' pageArea='1'>
          <instruction instr-id='818'/>
          <instruction instr-id='821'/>
          <instruction instr-id='821' subinstr-id='2'/>
@@ -292,7 +292,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='3'>
-      <region id='1' page='1'>
+      <region id='1' pageArea='1'>
          <instruction instr-id='1569'/>
          <instruction instr-id='1572'/>
          <instruction instr-id='1572' subinstr-id='2'/>
@@ -416,7 +416,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='4'>
-      <region id='1' page='2'>
+      <region id='1' pageArea='2'>
          <instruction instr-id='46'/>
          <instruction instr-id='49'/>
          <instruction instr-id='49' subinstr-id='2'/>
@@ -619,7 +619,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='5'>
-      <region id='1' page='2'>
+      <region id='1' pageArea='2'>
          <instruction instr-id='1304'/>
          <instruction instr-id='1307'/>
          <instruction instr-id='1307' subinstr-id='2'/>
@@ -915,7 +915,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='6'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='55'/>
          <instruction instr-id='58'/>
          <instruction instr-id='58' subinstr-id='2'/>
@@ -1185,7 +1185,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='7'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='1126'/>
          <instruction instr-id='1129'/>
          <instruction instr-id='1129' subinstr-id='2'/>

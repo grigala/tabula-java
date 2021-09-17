@@ -2,7 +2,7 @@
 <document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_us-035-reg.xml'>
    <table id='1'>
-      <region id='1' page='2'>
+      <region id='1' pageArea='2'>
          <instruction instr-id='74'/>
          <instruction instr-id='74' subinstr-id='2'/>
          <instruction instr-id='77'/>
@@ -59,7 +59,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='2'>
-      <region id='1' page='3'>
+      <region id='1' pageArea='3'>
          <instruction instr-id='222'/>
          <instruction instr-id='222' subinstr-id='2'/>
          <instruction instr-id='224'/>
@@ -145,7 +145,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
          <instruction instr-id='344' subinstr-id='2'/>
          <bounding-box x1='74' y1='193' x2='224' y2='692'/>
       </region>
-      <region id='2' page='3'>
+      <region id='2' pageArea='3'>
          <instruction instr-id='222' subinstr-id='4'/>
          <instruction instr-id='222' subinstr-id='6'/>
          <instruction instr-id='224' subinstr-id='2'/>
@@ -231,7 +231,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
          <instruction instr-id='344' subinstr-id='6'/>
          <bounding-box x1='234' y1='193' x2='358' y2='692'/>
       </region>
-      <region id='3' page='3'>
+      <region id='3' pageArea='3'>
          <instruction instr-id='222' subinstr-id='8'/>
          <instruction instr-id='222' subinstr-id='10'/>
          <instruction instr-id='224' subinstr-id='4'/>
@@ -307,7 +307,7 @@ xsi:noNamespaceSchemaLocation="competition-entry-region-model.xsd" filename='bm_
       </region>
    </table>
    <table id='3'>
-      <region id='1' page='4'>
+      <region id='1' pageArea='4'>
          <instruction instr-id='51'/>
          <instruction instr-id='51' subinstr-id='2'/>
          <instruction instr-id='51' subinstr-id='4'/>

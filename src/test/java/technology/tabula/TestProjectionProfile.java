@@ -32,7 +32,7 @@ public class TestProjectionProfile {
 		List<Ruling> rulingList = new ArrayList<>();
 		rulingList.add(ruling);
 
-		pageArea = PageArea.Builder.newInstance()
+		pageArea = PageBuilder.newInstance()
 				.withPageDims(PageDims.of(0, 0, 1, 1))
 				.withRotation(0)
 				.withNumber(1)

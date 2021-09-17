@@ -1,14 +1,12 @@
 package technology.tabula;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.IOException;
-import java.util.List;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 
 import org.junit.Test;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
+import java.io.IOException;
+import java.util.List;
 
 import technology.tabula.extractors.BasicExtractionAlgorithm;
 import technology.tabula.extractors.SpreadsheetExtractionAlgorithm;
@@ -16,22 +14,24 @@ import technology.tabula.writers.CSVWriter;
 import technology.tabula.writers.JSONWriter;
 import technology.tabula.writers.TSVWriter;
 
+import static org.junit.Assert.assertEquals;
+
 public class TestWriters {
 
     private static final String EXPECTED_CSV_WRITER_OUTPUT = "\"ABDALA de MATARAZZO, Norma Amanda\",Frente Cívico por Santiago,Santiago del Estero,AFIRMATIVO";
 
     private Table getTable() throws IOException {
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/argentina_diputados_voting_record.pdf", 269.875f, 12.75f, 790.5f, 561f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/argentina_diputados_voting_record.pdf", 269.875f, 12.75f, 790.5f, 561f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         return table;
     }
 
     private List<Table> getTables() throws IOException {
 
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/twotables.pdf", 1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/twotables.pdf", 1);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        return sea.extract(page);
+        return sea.extract(pageArea);
     }
 
     @Test
@@ -71,9 +71,9 @@ public class TestWriters {
     @Test
     public void testJSONSerializeInfinity() throws IOException {
         String expectedJson = UtilsForTesting.loadJson("src/test/resources/technology/tabula/json/schools.json");
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/schools.pdf", 53.74f, 16.97f, 548.74f, 762.3f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/schools.pdf", 53.74f, 16.97f, 548.74f, 762.3f);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        Table table = sea.extract(page).get(0);
+        Table table = sea.extract(pageArea).get(0);
 
         StringBuilder sb = new StringBuilder();
         (new JSONWriter()).write(sb, table);
@@ -84,9 +84,9 @@ public class TestWriters {
     @Test
     public void testCSVSerializeInfinity() throws IOException {
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/schools.csv");
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/schools.pdf", 53.74f, 16.97f, 548.74f, 762.3f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/schools.pdf", 53.74f, 16.97f, 548.74f, 762.3f);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        Table table = sea.extract(page).get(0);
+        Table table = sea.extract(pageArea).get(0);
 
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, table);
@@ -123,9 +123,9 @@ public class TestWriters {
     @Test
     public void testCSVMultilineRow() throws IOException {
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/frx_2012_disclosure.csv");
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/frx_2012_disclosure.pdf", 53.0f, 49.0f, 735.0f, 550.0f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/frx_2012_disclosure.pdf", 53.0f, 49.0f, 735.0f, 550.0f);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        Table table = sea.extract(page).get(0);
+        Table table = sea.extract(pageArea).get(0);
 
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, table);

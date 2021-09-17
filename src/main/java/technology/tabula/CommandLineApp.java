@@ -1,21 +1,21 @@
 package technology.tabula;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import org.apache.commons.cli.DefaultParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import technology.tabula.detectors.DetectionAlgorithm;
 import technology.tabula.detectors.NurminenDetectionAlgorithm;
@@ -158,11 +158,11 @@ public class CommandLineApp {
             List<Table> tables = new ArrayList<>();
 
             while (pageIterator.hasNext()) {
-                Page page = pageIterator.next();
+                PageArea pageArea = pageIterator.next();
 
                 if (tableExtractor.verticalRulingPositions != null) {
                     for (Float verticalRulingPosition : tableExtractor.verticalRulingPositions) {
-                        page.addRuling(new Ruling(0, verticalRulingPosition, 0.0f, (float) page.getHeight()));
+                        pageArea.addRuling(new Ruling(0, verticalRulingPosition, 0.0f, (float) pageArea.getHeight()));
                     }
                 }
 
@@ -170,14 +170,14 @@ public class CommandLineApp {
                     for (Pair<Integer, Rectangle> areaPair : pageAreas) {
                         Rectangle area = areaPair.getRight();
                         if (areaPair.getLeft() == RELATIVE_AREA_CALCULATION_MODE) {
-                            area = new Rectangle((float) (area.getTop() / 100 * page.getHeight()),
-                                    (float) (area.getLeft() / 100 * page.getWidth()), (float) (area.getWidth() / 100 * page.getWidth()),
-                                    (float) (area.getHeight() / 100 * page.getHeight()));
+                            area = new Rectangle((float) (area.getTop() / 100 * pageArea.getHeight()),
+                                                 (float) (area.getLeft() / 100 * pageArea.getWidth()), (float) (area.getWidth() / 100 * pageArea.getWidth()),
+                                                 (float) (area.getHeight() / 100 * pageArea.getHeight()));
                         }
-                        tables.addAll(tableExtractor.extractTables(page.getArea(area)));
+                        tables.addAll(tableExtractor.extractTables(pageArea.getArea(area)));
                     }
                 } else {
-                    tables.addAll(tableExtractor.extractTables(page));
+                    tables.addAll(tableExtractor.extractTables(pageArea));
                 }
             }
             writeTables(tables, outFile);
@@ -195,7 +195,7 @@ public class CommandLineApp {
     }
 
     private PageIterator getPageIterator(PDDocument pdfDocument) throws IOException {
-        ObjectExtractor extractor = new ObjectExtractor(pdfDocument);
+        TextExtractor extractor = new TextExtractor(pdfDocument);
         return (pages == null) ?
                 extractor.extract() :
                 extractor.extract(pages);
@@ -396,33 +396,33 @@ public class CommandLineApp {
             this.method = method;
         }
 
-        public List<Table> extractTables(Page page) {
+        public List<Table> extractTables(PageArea pageArea) {
             ExtractionMethod effectiveMethod = this.method;
             if (effectiveMethod == ExtractionMethod.DECIDE) {
-                effectiveMethod = spreadsheetExtractor.isTabular(page) ?
+                effectiveMethod = spreadsheetExtractor.isTabular(pageArea) ?
                         ExtractionMethod.SPREADSHEET :
                         ExtractionMethod.BASIC;
             }
             switch (effectiveMethod) {
                 case BASIC:
-                    return extractTablesBasic(page);
+                    return extractTablesBasic(pageArea);
                 case SPREADSHEET:
-                    return extractTablesSpreadsheet(page);
+                    return extractTablesSpreadsheet(pageArea);
                 default:
                     return new ArrayList<>();
             }
         }
 
-        public List<Table> extractTablesBasic(Page page) {
+        public List<Table> extractTablesBasic(PageArea pageArea) {
             if (guess) {
                 // guess the page areas to extract using a detection algorithm
                 // currently we only have a detector that uses spreadsheets to find table areas
                 DetectionAlgorithm detector = new NurminenDetectionAlgorithm();
-                List<Rectangle> guesses = detector.detect(page);
+                List<Rectangle> guesses = detector.detect(pageArea);
                 List<Table> tables = new ArrayList<>();
 
                 for (Rectangle guessRect : guesses) {
-                    Page guess = page.getArea(guessRect);
+                    PageArea guess = pageArea.getArea(guessRect);
                     tables.addAll(basicExtractor.extract(guess));
                 }
                 return tables;
@@ -435,21 +435,21 @@ public class CommandLineApp {
                     // convert relative to absolute
                     absoluteRulingPositions = new ArrayList<>(verticalRulingPositions.size());
                     for (float relative : this.verticalRulingPositions) {
-                        float absolute = (float) (relative / 100.0 * page.getWidth());
+                        float absolute = (float) (relative / 100.0 * pageArea.getWidth());
                         absoluteRulingPositions.add(absolute);
                     }
                 } else {
                     absoluteRulingPositions = this.verticalRulingPositions;
                 }
-                return basicExtractor.extract(page, absoluteRulingPositions);
+                return basicExtractor.extract(pageArea, absoluteRulingPositions);
             }
 
-            return basicExtractor.extract(page);
+            return basicExtractor.extract(pageArea);
         }
 
-        public List<Table> extractTablesSpreadsheet(Page page) {
+        public List<Table> extractTablesSpreadsheet(PageArea pageArea) {
             // TODO add useLineReturns
-            return spreadsheetExtractor.extract(page);
+            return spreadsheetExtractor.extract(pageArea);
         }
     }
 

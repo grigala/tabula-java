@@ -1,9 +1,22 @@
 package technology.tabula.extractors;
 
-import technology.tabula.*;
-
 import java.awt.geom.Point2D;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import technology.tabula.Cell;
+import technology.tabula.PageArea;
+import technology.tabula.Rectangle;
+import technology.tabula.Ruling;
+import technology.tabula.Table;
+import technology.tabula.TableWithRulingLines;
+import technology.tabula.TextElement;
+import technology.tabula.Utils;
 
 /**
  * @author manuel
@@ -37,14 +50,14 @@ public class SpreadsheetExtractionAlgorithm implements ExtractionAlgorithm {
     }
     
     @Override
-    public List<Table> extract(Page page) {
-        return extract(page, page.getRulings());
+    public List<Table> extract(PageArea pageArea) {
+        return extract(pageArea, pageArea.getRulings());
     }
     
     /**
      * Extract a list of Table from page using rulings as separators
      */
-    public List<Table> extract(Page page, List<Ruling> rulings) {
+    public List<Table> extract(PageArea pageArea, List<Ruling> rulings) {
         // split rulings into horizontal and vertical
         List<Ruling> horizontalR = new ArrayList<>();
         List<Ruling> verticalR = new ArrayList<>();
@@ -70,7 +83,7 @@ public class SpreadsheetExtractionAlgorithm implements ExtractionAlgorithm {
             for (Cell c: cells) {
                 if (c.intersects(area)) {
 
-                    c.setTextElements(TextElement.mergeWords(page.getText(c)));
+                    c.setTextElements(TextElement.mergeWords(pageArea.getText(c)));
                     overlappingCells.add(c);
                 }
             }
@@ -95,17 +108,17 @@ public class SpreadsheetExtractionAlgorithm implements ExtractionAlgorithm {
         return spreadsheets;
     }
     
-    public boolean isTabular(Page page) {
+    public boolean isTabular(PageArea pageArea) {
         
         // if there's no text at all on the page, it's not a table 
         // (we won't be able to do anything with it though)
-        if (page.getText().isEmpty()){
+        if (pageArea.getText().isEmpty()){
             return false; 
         }
 
         // get minimal region of page that contains every character (in effect,
         // removes white "margins")
-        Page minimalRegion = page.getArea(Utils.bounds(page.getText()));
+        PageArea minimalRegion = pageArea.getArea(Utils.bounds(pageArea.getText()));
         
         List<? extends Table> tables = new SpreadsheetExtractionAlgorithm().extract(minimalRegion);
         if (tables.isEmpty()) {

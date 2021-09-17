@@ -1,8 +1,9 @@
 package technology.tabula;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.junit.Test;
 
 import java.awt.geom.Point2D;
 import java.io.File;
@@ -14,14 +15,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.junit.Test;
-
 import technology.tabula.extractors.SpreadsheetExtractionAlgorithm;
 import technology.tabula.writers.CSVWriter;
 import technology.tabula.writers.JSONWriter;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TestSpreadsheetExtractor {
 
@@ -183,61 +183,61 @@ public class TestSpreadsheetExtractor {
     // TODO Add assertions
     @Test
     public void testSpreadsheetExtraction() throws IOException {
-        Page page = UtilsForTesting
+        PageArea pageArea = UtilsForTesting
                 .getAreaFromFirstPage(
                         "src/test/resources/technology/tabula/argentina_diputados_voting_record.pdf",
                         269.875f, 12.75f, 790.5f, 561f);
 
-        SpreadsheetExtractionAlgorithm.findCells(page.getHorizontalRulings(), page.getVerticalRulings());
-        page.getPDDoc().close();
+        SpreadsheetExtractionAlgorithm.findCells(pageArea.getHorizontalRulings(), pageArea.getVerticalRulings());
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testSpanningCells() throws IOException {
-        Page page = UtilsForTesting
+        PageArea pageArea = UtilsForTesting
                 .getPage("src/test/resources/technology/tabula/spanning_cells.pdf", 1);
         String expectedJson = UtilsForTesting.loadJson("src/test/resources/technology/tabula/json/spanning_cells.json");
         SpreadsheetExtractionAlgorithm se = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = se.extract(page);
+        List<Table> tables = se.extract(pageArea);
         assertEquals(2, tables.size());
 
 
         StringBuilder sb = new StringBuilder();
         (new JSONWriter()).write(sb, tables);
         assertEquals(expectedJson, sb.toString());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testSpanningCellsToCsv() throws IOException {
-        Page page = UtilsForTesting
+        PageArea pageArea = UtilsForTesting
                 .getPage("src/test/resources/technology/tabula/spanning_cells.pdf", 1);
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/spanning_cells.csv");
         SpreadsheetExtractionAlgorithm se = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = se.extract(page);
+        List<Table> tables = se.extract(pageArea);
         assertEquals(2, tables.size());
 
 
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, tables);
         assertEquals(expectedCsv, sb.toString());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testIncompleteGrid() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/china.pdf", 1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/china.pdf", 1);
         SpreadsheetExtractionAlgorithm se = new SpreadsheetExtractionAlgorithm();
-        List<? extends Table> tables = se.extract(page);
+        List<? extends Table> tables = se.extract(pageArea);
         assertEquals(2, tables.size());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testNaturalOrderOfRectanglesDoesNotBreakContract() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/us-017.pdf", 2);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/us-017.pdf", 2);
         SpreadsheetExtractionAlgorithm se = new SpreadsheetExtractionAlgorithm();
-        List<? extends Table> tables = se.extract(page);
+        List<? extends Table> tables = se.extract(pageArea);
 
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, tables.get(0));
@@ -246,48 +246,48 @@ public class TestSpreadsheetExtractor {
         String expected = "Project,Agency,Institution\r\nNanotechnology and its publics,NSF,Pennsylvania State University\r\n\"Public information and deliberation in nanoscience and\rnanotechnology policy (SGER)\",Interagency,\"North Carolina State\rUniversity\"\r\n\"Social and ethical research and education in agrifood\rnanotechnology (NIRT)\",NSF,Michigan State University\r\n\"From laboratory to society: developing an informed\rapproach to nanoscale science and engineering (NIRT)\",NSF,University of South Carolina\r\nDatabase and innovation timeline for nanotechnology,NSF,UCLA\r\nSocial and ethical dimensions of nanotechnology,NSF,University of Virginia\r\n\"Undergraduate exploration of nanoscience,\rapplications and societal implications (NUE)\",NSF,\"Michigan Technological\rUniversity\"\r\n\"Ethics and belief inside the development of\rnanotechnology (CAREER)\",NSF,University of Virginia\r\n\"All centers, NNIN and NCN have a societal\rimplications components\",\"NSF, DOE,\rDOD, and NIH\",\"All nanotechnology centers\rand networks\"\r\n";
 
         assertEquals(expected, result);
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testMergeLinesCloseToEachOther() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/20.pdf", 1);
-        List<Ruling> rulings = page.getVerticalRulings();
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/20.pdf", 1);
+        List<Ruling> rulings = pageArea.getVerticalRulings();
         float[] expectedRulings = new float[]{105.549774f, 107.52332f, 160.58167f, 377.1792f, 434.95804f, 488.21783f};
         for (int i = 0; i < rulings.size(); i++) {
             assertEquals(expectedRulings[i], rulings.get(i).getLeft(), 0.1);
         }
         assertEquals(6, rulings.size());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testSpreadsheetWithNoBoundingFrameShouldBeSpreadsheet() throws IOException {
-        Page page = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/spreadsheet_no_bounding_frame.pdf", 1,
-                150.56f, 58.9f, 654.7f, 536.12f);
+        PageArea pageArea = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/spreadsheet_no_bounding_frame.pdf", 1,
+                                                            150.56f, 58.9f, 654.7f, 536.12f);
 
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/spreadsheet_no_bounding_frame.csv");
 
         SpreadsheetExtractionAlgorithm se = new SpreadsheetExtractionAlgorithm();
-        boolean isTabular = se.isTabular(page);
+        boolean isTabular = se.isTabular(pageArea);
         assertTrue(isTabular);
-        List<? extends Table> tables = se.extract(page);
+        List<? extends Table> tables = se.extract(pageArea);
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, tables.get(0));
 
         assertEquals(expectedCsv, sb.toString());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
 
     }
 
     @Test
     public void testExtractSpreadsheetWithinAnArea() throws IOException {
-        Page page = UtilsForTesting.getAreaFromPage(
+        PageArea pageArea = UtilsForTesting.getAreaFromPage(
                 "src/test/resources/technology/tabula/puertos1.pdf",
                 1,
                 273.9035714285714f, 30.32142857142857f, 554.8821428571429f, 546.7964285714286f);
         SpreadsheetExtractionAlgorithm se = new SpreadsheetExtractionAlgorithm();
-        List<? extends Table> tables = se.extract(page);
+        List<? extends Table> tables = se.extract(pageArea);
         Table table = tables.get(0);
         assertEquals(15, table.getRows().size());
 
@@ -336,7 +336,7 @@ public class TestSpreadsheetExtractor {
         for (int i = 0; i < parsedResult.size(); i++) {
             assertEquals(parsedResult.get(i).size(), parsedExpected.get(i).size());
         }
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
@@ -350,35 +350,35 @@ public class TestSpreadsheetExtractor {
     // TODO add assertions
     @Test
     public void testDontRaiseSortException() throws IOException {
-        Page page = UtilsForTesting.getAreaFromPage(
+        PageArea pageArea = UtilsForTesting.getAreaFromPage(
                 "src/test/resources/technology/tabula/us-017.pdf",
                 2,
                 446.0f, 97.0f, 685.0f, 520.0f);
-        page.getText();
+        pageArea.getText();
         SpreadsheetExtractionAlgorithm bea = new SpreadsheetExtractionAlgorithm();
-        bea.extract(page).get(0);
-        page.getPDDoc().close();
+        bea.extract(pageArea).get(0);
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testShouldDetectASingleSpreadsheet() throws IOException {
-        Page page = UtilsForTesting.getAreaFromPage(
+        PageArea pageArea = UtilsForTesting.getAreaFromPage(
                 "src/test/resources/technology/tabula/offense.pdf",
                 1,
                 68.08f, 16.44f, 680.85f, 597.84f);
         SpreadsheetExtractionAlgorithm bea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = bea.extract(page);
+        List<Table> tables = bea.extract(pageArea);
         assertEquals(1, tables.size());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testExtractTableWithExternallyDefinedRulings() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/us-007.pdf",
-                1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/us-007.pdf",
+                                                    1);
         SpreadsheetExtractionAlgorithm bea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = bea.extract(page,
-                Arrays.asList(EXTERNALLY_DEFINED_RULINGS));
+        List<Table> tables = bea.extract(pageArea,
+                                         Arrays.asList(EXTERNALLY_DEFINED_RULINGS));
         assertEquals(1, tables.size());
         Table table = tables.get(0);
 
@@ -400,57 +400,57 @@ public class TestSpreadsheetExtractor {
         assertEquals("3,700.00", table.getRows().get(7).get(1).getText());
         assertEquals("Daily or Miscellaneous\r(each day of the payroll period)", table.getRows().get(8).get(0).getText());
         assertEquals("14.23", table.getRows().get(8).get(1).getText());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
 
     }
 
     @Test
     public void testAnotherExtractTableWithExternallyDefinedRulings() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/us-024.pdf",
-                1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/us-024.pdf",
+                                                    1);
         SpreadsheetExtractionAlgorithm bea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = bea.extract(page,
-                Arrays.asList(EXTERNALLY_DEFINED_RULINGS2));
+        List<Table> tables = bea.extract(pageArea,
+                                         Arrays.asList(EXTERNALLY_DEFINED_RULINGS2));
         assertEquals(1, tables.size());
         Table table = tables.get(0);
 
         assertEquals("Total Supply", table.getRows().get(4).get(0).getText());
         assertEquals("6.6", table.getRows().get(6).get(2).getText());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testSpreadsheetsSortedByTopAndRight() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/sydney_disclosure_contract.pdf",
-                1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/sydney_disclosure_contract.pdf",
+                                                    1);
 
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = sea.extract(page);
+        List<Table> tables = sea.extract(pageArea);
         for (int i = 1; i < tables.size(); i++) {
             assert (tables.get(i - 1).getTop() <= tables.get(i).getTop());
         }
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testDontStackOverflowQuicksort() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/failing_sort.pdf",
-                1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/failing_sort.pdf",
+                                                    1);
 
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = sea.extract(page);
+        List<Table> tables = sea.extract(pageArea);
         for (int i = 1; i < tables.size(); i++) {
             assert (tables.get(i - 1).getTop() <= tables.get(i).getTop());
         }
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testRTL() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/arabic.pdf",
-                1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/arabic.pdf",
+                                                    1);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = sea.extract(page);
+        List<Table> tables = sea.extract(pageArea);
         // assertEquals(1, tables.size());
         Table table = tables.get(0);
 
@@ -473,16 +473,16 @@ public class TestSpreadsheetExtractor {
         // which is not currently possible because of the two problems listed above
         // assertEquals("مرحباً",                       table.getRows().get(0).get(0).getText()); // really ought to be ً, but this is forgiveable for now
 
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
 
     @Test
     public void testRealLifeRTL() throws IOException {
-        Page page = UtilsForTesting.getPage("src/test/resources/technology/tabula/mednine.pdf",
-                1);
+        PageArea pageArea = UtilsForTesting.getPage("src/test/resources/technology/tabula/mednine.pdf",
+                                                    1);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = sea.extract(page);
+        List<Table> tables = sea.extract(pageArea);
         // assertEquals(1, tables.size());
         Table table = tables.get(0);
 
@@ -507,33 +507,33 @@ public class TestSpreadsheetExtractor {
         // these (commented-out) tests reflect the theoretical correct answer,
         // which is not currently possible because of the two problems listed above
         // assertEquals("مرحباً",                       table.getRows().get(0).get(0).getText()); // really ought to be ً, but this is forgiveable for now
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
 
     }
 
     @Test
     public void testExtractColumnsCorrectly3() throws IOException {
 
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/frx_2012_disclosure.pdf",
-                106.01f, 48.09f, 227.31f, 551.89f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/frx_2012_disclosure.pdf",
+                                                                 106.01f, 48.09f, 227.31f, 551.89f);
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        Table table = sea.extract(page).get(0);
+        Table table = sea.extract(pageArea).get(0);
 
         assertEquals("REGIONAL PULMONARY & SLEEP\rMEDICINE", table.getRows().get(8).get(1).getText());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
 
     }
     
     @Test
     public void testSpreadsheetExtractionIssue656() throws IOException {
-        Page page = UtilsForTesting
+        PageArea pageArea = UtilsForTesting
                 .getAreaFromFirstPage(
                         "src/test/resources/technology/tabula/Publication_of_award_of_Bids_for_Transport_Sector__August_2016.pdf",
                         56.925f,24.255f,549.945f,786.555f);
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/Publication_of_award_of_Bids_for_Transport_Sector__August_2016.csv");
         
         SpreadsheetExtractionAlgorithm sea = new SpreadsheetExtractionAlgorithm();
-        List<Table> tables = sea.extract(page);
+        List<Table> tables = sea.extract(pageArea);
         assertEquals(1, tables.size());
         Table table = tables.get(0);
         
@@ -541,7 +541,7 @@ public class TestSpreadsheetExtractor {
         (new CSVWriter()).write(sb, table);
         String result = sb.toString();
         assertEquals(expectedCsv, result);
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }    
 
 }

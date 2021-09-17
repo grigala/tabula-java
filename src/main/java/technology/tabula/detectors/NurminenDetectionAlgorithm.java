@@ -1,13 +1,5 @@
 package technology.tabula.detectors;
 
-import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
-import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.*;
-
 import org.apache.pdfbox.contentstream.operator.Operator;
 import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdfparser.PDFStreamParser;
@@ -17,8 +9,26 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDStream;
 import org.apache.pdfbox.rendering.ImageType;
 
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.Raster;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
 import technology.tabula.Line;
-import technology.tabula.Page;
+import technology.tabula.PageArea;
 import technology.tabula.Rectangle;
 import technology.tabula.Ruling;
 import technology.tabula.TextChunk;
@@ -89,16 +99,16 @@ public class NurminenDetectionAlgorithm implements DetectionAlgorithm {
     }
 
     @Override
-    public List<Rectangle> detect(Page page) {
+    public List<Rectangle> detect(PageArea pageArea) {
 
         // get horizontal & vertical lines
         // we get these from an image of the PDF and not the PDF itself because sometimes there are invisible PDF
         // instructions that are interpreted incorrectly as visible elements - we really want to capture what a
         // person sees when they look at the PDF
         BufferedImage image;
-        PDPage pdfPage = page.getPDPage();
+        PDPage pdfPage = pageArea.getPDPage();
         try {
-            image = Utils.pageConvertToImage(page.getPDDoc(), pdfPage, 144, ImageType.GRAY);
+            image = Utils.pageConvertToImage(pageArea.getPDDoc(), pdfPage, 144, ImageType.GRAY);
         } catch (IOException e) {
             return new ArrayList<>();
         }
@@ -194,7 +204,7 @@ public class NurminenDetectionAlgorithm implements DetectionAlgorithm {
         }
 
         // now look at text rows to help us find more tables and flesh out existing ones
-        List<TextChunk> textChunks = TextElement.mergeWords(page.getText());
+        List<TextChunk> textChunks = TextElement.mergeWords(pageArea.getText());
         List<Line> lines = TextChunk.groupByLines(textChunks);
 
         // first look for text rows that intersect an existing table - those lines should probably be part of the table

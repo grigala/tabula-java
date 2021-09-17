@@ -1,20 +1,21 @@
 package technology.tabula;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class TestProjectionProfile {
 	
 	ProjectionProfile pProfile;
-	Page page;
+	PageArea pageArea;
 
 	@Before
 	public void setUpProjectionProfile() {
@@ -31,7 +32,7 @@ public class TestProjectionProfile {
 		List<Ruling> rulingList = new ArrayList<>();
 		rulingList.add(ruling);
 
-		page = Page.Builder.newInstance()
+		pageArea = PageArea.Builder.newInstance()
 				.withPageDims(PageDims.of(0, 0, 1, 1))
 				.withRotation(0)
 				.withNumber(1)
@@ -44,7 +45,7 @@ public class TestProjectionProfile {
 		List<Rectangle> rectangles = new ArrayList<>();
 		rectangles.add(new Rectangle(0f, 0f, 500f, 5f));
 		
-		pProfile = new ProjectionProfile(page, rectangles, 5, 5);
+		pProfile = new ProjectionProfile(pageArea, rectangles, 5, 5);
 	}
 
 	@Test
@@ -61,13 +62,13 @@ public class TestProjectionProfile {
 
 	@Test
 	public void testFindVerticalSeparators() {
-		float[] seperators = pProfile.findVerticalSeparators(page.getText().size() * 2.5f);
+		float[] seperators = pProfile.findVerticalSeparators(pageArea.getText().size() * 2.5f);
 		assertTrue(seperators.length == 0);
 	}
 
 	@Test
 	public void testFindHorizontalSeparators() {
-		float[] seperators = pProfile.findHorizontalSeparators(page.getText().size() * 2.5f);
+		float[] seperators = pProfile.findHorizontalSeparators(pageArea.getText().size() * 2.5f);
 		assertTrue(seperators.length == 0);
 	}
 

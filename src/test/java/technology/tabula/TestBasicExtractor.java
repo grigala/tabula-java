@@ -1,6 +1,9 @@
 package technology.tabula;
 
-import static org.junit.Assert.*;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,13 +11,12 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.junit.Test;
-
 import technology.tabula.extractors.BasicExtractionAlgorithm;
 import technology.tabula.writers.CSVWriter;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestBasicExtractor {
 
@@ -128,23 +130,23 @@ public class TestBasicExtractor {
 
     @Test
     public void testRemoveSequentialSpaces() throws IOException {
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/m27.pdf", 79.2f, 28.28f, 103.04f, 732.6f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/m27.pdf", 79.2f, 28.28f, 103.04f, 732.6f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         List<RectangularTextContainer> firstRow = table.getRows().get(0);
 
         assertTrue(firstRow.get(1).getText().equals("ALLEGIANT AIR"));
         assertTrue(firstRow.get(2).getText().equals("ALLEGIANT AIR LLC"));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testColumnRecognition() throws IOException {
-        Page page = UtilsForTesting.getAreaFromFirstPage(ARGENTINA_DIPUTADOS_VOTING_RECORD_PDF, 269.875f, 12.75f, 790.5f, 561f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage(ARGENTINA_DIPUTADOS_VOTING_RECORD_PDF, 269.875f, 12.75f, 790.5f, 561f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         assertArrayEquals(ARGENTINA_DIPUTADOS_VOTING_RECORD_EXPECTED, UtilsForTesting.tableToArrayOfRows(table));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
@@ -155,67 +157,67 @@ public class TestBasicExtractor {
             rulings.add(new Ruling(255.57f, rulingsVerticalPositions[i], 0, 398.76f - 255.57f));
         }
 
-        Page page = UtilsForTesting.getAreaFromFirstPage(
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage(
                 "src/test/resources/technology/tabula/campaign_donors.pdf",
                 255.57f, 40.43f, 398.76f, 557.35f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm(rulings);
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         List<RectangularTextContainer> sixthRow = table.getRows().get(5);
 
         assertTrue(sixthRow.get(0).getText().equals("VALSANGIACOMO BLANC"));
         assertTrue(sixthRow.get(1).getText().equals("OFERNANDO JORGE"));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testExtractColumnsCorrectly() throws IOException {
-        Page page = UtilsForTesting.getAreaFromPage(EU_002_PDF, 1, 115.0f, 70.0f, 233.0f, 510.0f);
+        PageArea pageArea = UtilsForTesting.getAreaFromPage(EU_002_PDF, 1, 115.0f, 70.0f, 233.0f, 510.0f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         assertArrayEquals(EU_002_EXPECTED, UtilsForTesting.tableToArrayOfRows(table));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testExtractColumnsCorrectly2() throws IOException {
-        Page page = UtilsForTesting.getPage(EU_017_PDF, 3);
-        BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm(page.getVerticalRulings());
-        Table table = bea.extract(page.getArea(299.625f, 148.44f, 711.875f, 452.32f)).get(0);
+        PageArea pageArea = UtilsForTesting.getPage(EU_017_PDF, 3);
+        BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm(pageArea.getVerticalRulings());
+        Table table = bea.extract(pageArea.getArea(299.625f, 148.44f, 711.875f, 452.32f)).get(0);
         assertArrayEquals(EU_017_EXPECTED, UtilsForTesting.tableToArrayOfRows(table));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testExtractColumnsCorrectly3() throws IOException {
-        Page page = UtilsForTesting.getAreaFromFirstPage(FRX_2012_DISCLOSURE_PDF, 106.01f, 48.09f, 227.31f, 551.89f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage(FRX_2012_DISCLOSURE_PDF, 106.01f, 48.09f, 227.31f, 551.89f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         assertArrayEquals(FRX_2012_DISCLOSURE_EXPECTED, UtilsForTesting.tableToArrayOfRows(table));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testCheckSqueezeDoesntBreak() throws IOException {
-        Page page = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/12s0324.pdf",
-                99.0f, 17.25f, 316.5f, 410.25f);
+        PageArea pageArea = UtilsForTesting.getAreaFromFirstPage("src/test/resources/technology/tabula/12s0324.pdf",
+                                                                 99.0f, 17.25f, 316.5f, 410.25f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         List<List<RectangularTextContainer>> rows = table.getRows();
         List<RectangularTextContainer> firstRow = rows.get(0);
         List<RectangularTextContainer> lastRow = rows.get(rows.size() - 1);
         assertTrue(firstRow.get(0).getText().equals("Violent crime  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  ."));
         assertTrue(lastRow.get(lastRow.size() - 1).getText().equals("(X)"));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
     @Test
     public void testNaturalOrderOfRectangles() throws IOException {
-        Page page = UtilsForTesting.getPage(
+        PageArea pageArea = UtilsForTesting.getPage(
                 "src/test/resources/technology/tabula/us-017.pdf", 2)
                 .getArea(446.0f, 97.0f, 685.0f, 520.0f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm(
-                page.getVerticalRulings());
-        Table table = bea.extract(page).get(0);
+                pageArea.getVerticalRulings());
+        Table table = bea.extract(pageArea).get(0);
 
         List<RectangularTextContainer> cells = new ArrayList<>(table.cells.values());
         for (RectangularTextContainer rectangularTextContainer : cells) {
@@ -281,7 +283,7 @@ public class TestBasicExtractor {
         assertEquals("DOD, and NIH", cells.get(38).getText());
         assertEquals("and networks", cells.get(39).getText());
 
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
 
     }
 
@@ -315,34 +317,34 @@ public class TestBasicExtractor {
     @Test
     public void testRealLifeRTL2() throws IOException {
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/indictb1h_14.csv");
-        Page page = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/indictb1h_14.pdf", 1,
-                205.0f, 120.0f, 622.82f, 459.9f);
+        PageArea pageArea = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/indictb1h_14.pdf", 1,
+                                                            205.0f, 120.0f, 622.82f, 459.9f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
 
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, table);
         assertEquals(expectedCsv, sb.toString());
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
 
     @Test
     public void testEmptyRegion() throws IOException {
-        Page page = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/indictb1h_14.pdf", 1, 0, 0, 80.82f, 100.9f); // an empty area
+        PageArea pageArea = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/indictb1h_14.pdf", 1, 0, 0, 80.82f, 100.9f); // an empty area
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
         assertArrayEquals(EXPECTED_EMPTY_TABLE, UtilsForTesting.tableToArrayOfRows(table));
-        page.getPDDoc().close();
+        pageArea.getPDDoc().close();
     }
 
 
     @Test
     public void testTableWithMultilineHeader() throws IOException {
         String expectedCsv = UtilsForTesting.loadCsv("src/test/resources/technology/tabula/csv/us-020.csv");
-        Page page = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/us-020.pdf", 2, 103.0f, 35.0f, 641.0f, 560.0f);
+        PageArea pageArea = UtilsForTesting.getAreaFromPage("src/test/resources/technology/tabula/us-020.pdf", 2, 103.0f, 35.0f, 641.0f, 560.0f);
         BasicExtractionAlgorithm bea = new BasicExtractionAlgorithm();
-        Table table = bea.extract(page).get(0);
+        Table table = bea.extract(pageArea).get(0);
 
         StringBuilder sb = new StringBuilder();
         (new CSVWriter()).write(sb, table);

@@ -1,28 +1,37 @@
 package technology.tabula;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import static org.junit.Assert.*;
-
 import com.google.gson.Gson;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.pdfbox.pdmodel.PDDocument;
 import technology.tabula.detectors.NurminenDetectionAlgorithm;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by matt on 2015-12-14.
@@ -163,7 +172,7 @@ public class TestTableDetection {
 
         // tabula extractors
         PDDocument pdfDocument = PDDocument.load(this.pdf);
-        ObjectExtractor extractor = new ObjectExtractor(pdfDocument);
+        TextExtractor extractor = new TextExtractor(pdfDocument);
 
         // parse expected tables from the ground truth dataset
         Map<Integer, List<Rectangle>> expectedTables = new HashMap<>();
@@ -192,9 +201,9 @@ public class TestTableDetection {
             // have to invert y co-ordinates
             // unfortunately the ground truth doesn't contain page dimensions
             // do some extra work to extract the page with tabula and get the dimensions from there
-            Page extractedPage = extractor.extractPage(page);
+            PageArea extractedPageArea = extractor.extractPage(page);
 
-            float top = (float)extractedPage.getHeight() - y2;
+            float top = (float) extractedPageArea.getHeight() - y2;
             float left = x1;
             float width = x2 - x1;
             float height = y2 - y1;
@@ -211,10 +220,10 @@ public class TestTableDetection {
 
         PageIterator pages = extractor.extract();
         while (pages.hasNext()) {
-            Page page = pages.next();
-            List<Rectangle> tablesOnPage = detectionAlgorithm.detect(page);
+            PageArea pageArea = pages.next();
+            List<Rectangle> tablesOnPage = detectionAlgorithm.detect(pageArea);
             if (tablesOnPage.size() > 0) {
-                detectedTables.put(new Integer(page.getPageNumber()), tablesOnPage);
+                detectedTables.put(new Integer(pageArea.getPageNumber()), tablesOnPage);
             }
         }
 

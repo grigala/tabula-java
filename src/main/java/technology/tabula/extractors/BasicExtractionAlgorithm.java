@@ -1,13 +1,13 @@
 package technology.tabula.extractors;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Arrays;
 
 import technology.tabula.Line;
-import technology.tabula.Page;
+import technology.tabula.PageArea;
 import technology.tabula.Rectangle;
 import technology.tabula.Ruling;
 import technology.tabula.Table;
@@ -25,25 +25,25 @@ public class BasicExtractionAlgorithm implements ExtractionAlgorithm {
         this.verticalRulings = verticalRulings;
     }
     
-    public List<Table> extract(Page page, List<Float> verticalRulingPositions) {
+    public List<Table> extract(PageArea pageArea, List<Float> verticalRulingPositions) {
         List<Ruling> verticalRulings = new ArrayList<>(verticalRulingPositions.size());
         for (Float p: verticalRulingPositions) {
-            verticalRulings.add(new Ruling(page.getTop(), p, 0.0f, (float) page.getHeight()));
+            verticalRulings.add(new Ruling(pageArea.getTop(), p, 0.0f, (float) pageArea.getHeight()));
         }
         this.verticalRulings = verticalRulings;
-        return this.extract(page);
+        return this.extract(pageArea);
     }
 
     @Override
-    public List<Table> extract(Page page) {
+    public List<Table> extract(PageArea pageArea) {
         
-        List<TextElement> textElements = page.getText();
+        List<TextElement> textElements = pageArea.getText();
         
         if (textElements.size() == 0) {
             return Arrays.asList(new Table[] { Table.empty() });
         }
         
-        List<TextChunk> textChunks = this.verticalRulings == null ? TextElement.mergeWords(page.getText()) : TextElement.mergeWords(page.getText(), this.verticalRulings);
+        List<TextChunk> textChunks = this.verticalRulings == null ? TextElement.mergeWords(pageArea.getText()) : TextElement.mergeWords(pageArea.getText(), this.verticalRulings);
         List<Line> lines = TextChunk.groupByLines(textChunks);
         List<Float> columns = null;
         
@@ -64,7 +64,7 @@ public class BasicExtractionAlgorithm implements ExtractionAlgorithm {
         }
         
         Table table = new Table(this);
-        table.setRect(page.getLeft(), page.getTop(), page.getWidth(), page.getHeight());
+        table.setRect(pageArea.getLeft(), pageArea.getTop(), pageArea.getWidth(), pageArea.getHeight());
 
         for (int i = 0; i < lines.size(); i++) {
             Line line = lines.get(i);

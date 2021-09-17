@@ -3,38 +3,36 @@ package technology.tabula;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class PageIterator implements Iterator<Page> {
+public class PageIterator implements Iterator<PageArea> {
 
-    private ObjectExtractor objectExtractor;
+    private TextExtractor textExtractor;
     private Iterator<Integer> pageIndexIterator;
 
-    public PageIterator(ObjectExtractor objectExtractor, Iterable<Integer> pages) {
+    public PageIterator(TextExtractor textExtractor, Iterable<Integer> pages) {
         super();
-        this.objectExtractor = objectExtractor;
+        this.textExtractor = textExtractor;
         this.pageIndexIterator = pages.iterator();
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
     @Override
     public boolean hasNext() {
         return pageIndexIterator.hasNext();
     }
 
     @Override
-    public Page next() {
-        Page nextPage = null;
+    public PageArea next() {
+        PageArea nextPageArea = null;
         if (!this.hasNext()) {
             throw new IllegalStateException();
         }
         try {
-            nextPage = objectExtractor.extractPage(pageIndexIterator.next());
+            nextPageArea = textExtractor.extractPage(pageIndexIterator.next());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return nextPage;
+        return nextPageArea;
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
     @Override
     public void remove() {
         throw new UnsupportedOperationException();

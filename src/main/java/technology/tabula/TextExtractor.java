@@ -1,20 +1,19 @@
 package technology.tabula;
 
-import java.io.IOException;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 
-public class ObjectExtractor implements java.io.Closeable {
+import java.io.IOException;
+
+public class TextExtractor implements java.io.Closeable {
 
     private final PDDocument pdfDocument;
 
-    public ObjectExtractor(PDDocument pdfDocument) {
+    public TextExtractor(PDDocument pdfDocument) {
         this.pdfDocument = pdfDocument;
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-    protected Page extractPage(Integer pageNumber) throws IOException {
+    protected PageArea extractPage(Integer pageNumber) throws IOException {
         if (pageNumber > pdfDocument.getNumberOfPages() || pageNumber < 1) {
             throw new java.lang.IndexOutOfBoundsException("Page number does not exist.");
         }
@@ -38,7 +37,7 @@ public class ObjectExtractor implements java.io.Closeable {
             height = page.getCropBox().getHeight();
         }
 
-        return Page.Builder.newInstance()
+        return PageBuilder.newInstance()
                 .withPageDims(PageDims.of(0, 0, width, height))
                 .withRotation(rotation)
                 .withNumber(pageNumber)
@@ -52,7 +51,6 @@ public class ObjectExtractor implements java.io.Closeable {
                 .build();
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
     public PageIterator extract(Iterable<Integer> pages) {
         return new PageIterator(this, pages);
     }
@@ -61,11 +59,10 @@ public class ObjectExtractor implements java.io.Closeable {
         return extract(Utils.range(1, pdfDocument.getNumberOfPages() + 1));
     }
 
-    public Page extract(int pageNumber) {
+    public PageArea extract(int pageNumber) {
         return extract(Utils.range(pageNumber, pageNumber + 1)).next();
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
     public void close() throws IOException {
         pdfDocument.close();
     }

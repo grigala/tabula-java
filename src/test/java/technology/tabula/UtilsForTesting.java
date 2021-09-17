@@ -1,33 +1,37 @@
 package technology.tabula;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.List;
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.junit.Assert;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.List;
+
 public class UtilsForTesting {
 
-    public static Page getAreaFromFirstPage(String path, float top, float left, float bottom, float right) throws IOException {
+    public static PageArea getAreaFromFirstPage(String path, float top, float left, float bottom, float right) throws IOException {
         return getAreaFromPage(path, 1, top, left, bottom, right);
     }
 
-    public static Page getAreaFromPage(String path, int page, float top, float left, float bottom, float right) throws IOException {
+    public static PageArea getAreaFromPage(String path, int page, float top, float left, float bottom, float right) throws IOException {
         return getPage(path, page).getArea(top, left, bottom, right);
     }
 
-    public static Page getPage(String path, int pageNumber) throws IOException {
-        ObjectExtractor oe = null;
+    public static PageArea getPage(String path, int pageNumber) throws IOException {
+        TextExtractor oe = null;
         try {
             PDDocument document = PDDocument
                     .load(new File(path));
-            oe = new ObjectExtractor(document);
-            Page page = oe.extract(pageNumber);
-            return page;
+            oe = new TextExtractor(document);
+            PageArea pageArea = oe.extract(pageNumber);
+            return pageArea;
         } finally {
             if (oe != null)
                 oe.close();

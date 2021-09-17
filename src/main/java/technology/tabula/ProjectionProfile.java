@@ -10,7 +10,7 @@ import java.util.List;
 public class ProjectionProfile {
 
     public static final int DECIMAL_PLACES = 1; // fixed <-> float conversion precision
-    private final Page area;
+    private final PageArea area;
     private final Rectangle textBounds;
     private float[] verticalProjection;
     private float[] horizontalProjection;
@@ -18,7 +18,7 @@ public class ProjectionProfile {
     private float minCharWidth = Float.MAX_VALUE, minCharHeight = Float.MAX_VALUE, horizontalKernelSize, verticalKernelSize;
     private float maxHorizontalProjection = 0, maxVerticalProjection = 0;
     
-    public ProjectionProfile(Page area, List<? extends Rectangle> elements, float horizontalKernelSize, float verticalKernelSize) {
+    public ProjectionProfile(PageArea area, List<? extends Rectangle> elements, float horizontalKernelSize, float verticalKernelSize) {
         this.area = area;
         this.areaWidth = area.getWidth();
         this.areaHeight = area.getHeight();

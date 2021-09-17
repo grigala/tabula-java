@@ -2,7 +2,7 @@
 <document filename="bm_eu-003-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" pageArea="1" row-increment="0">
+        <region col-increment="0" id="1" page="1" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="238" x2="337" y1="641" y2="651"/>
                 <content>All companies analysed</content>
@@ -88,7 +88,7 @@ amendment</content>
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" pageArea="1" row-increment="0">
+        <region col-increment="0" id="1" page="1" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="209" x2="279" y1="497" y2="529"/>
                 <content>Number of
@@ -304,7 +304,7 @@ companies</content>
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" pageArea="1" row-increment="0">
+        <region col-increment="0" id="1" page="1" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="164" x2="229" y1="308" y2="373"/>
                 <content>Reclassification

@@ -2,7 +2,7 @@
 <document filename="bm_eu-005-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" pageArea="2" row-increment="0">
+        <region col-increment="0" id="1" page="2" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="269" x2="291" y1="692" y2="703"/>
                 <content>1996</content>
@@ -291,7 +291,7 @@
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" pageArea="2" row-increment="0">
+        <region col-increment="0" id="1" page="2" row-increment="0">
             <cell id="1" start-col="1" start-row="0">
                 <bounding-box x1="136" x2="202" y1="447" y2="471"/>
                 <content>Our estimates

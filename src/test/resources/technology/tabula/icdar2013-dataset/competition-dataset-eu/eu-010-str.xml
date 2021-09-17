@@ -2,7 +2,7 @@
 <document filename="bm_eu-010-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" pageArea="1" row-increment="0">
+        <region col-increment="0" id="1" page="1" row-increment="0">
             <cell end-col="0" end-row="0" id="1" start-col="0" start-row="0">
                 <bounding-box x1="216" x2="288" y1="649" y2="659"/>
                 <content>FEMIP Country</content>

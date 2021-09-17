@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename="bm_eu-015-str.xml">
     <table id="1">
-        <region col-increment="0" id="1" row-increment="0" pageArea='1'>
+        <region col-increment="0" id="1" row-increment="0" page='1'>
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="60" x2="82" y1="742" y2="752"/>
                 <content>Topic</content>
@@ -125,7 +125,7 @@
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" row-increment="0" pageArea='1'>
+        <region col-increment="0" id="1" row-increment="0" page='1'>
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="60" x2="82" y1="511" y2="521"/>
                 <content>Topic</content>
@@ -215,7 +215,7 @@ clarification)</content>
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" row-increment="0" pageArea='2'>
+        <region col-increment="0" id="1" row-increment="0" page='2'>
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="58" x2="123" y1="745" y2="752"/>
                 <content>Airpassengersrights</content>
@@ -539,7 +539,7 @@ clarification)</content>
         </region>
     </table>
     <table id="4">
-        <region col-increment="0" id="1" row-increment="0" pageArea='2'>
+        <region col-increment="0" id="1" row-increment="0" page='2'>
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="184" x2="242" y1="745" y2="762"/>
                 <content>Freemovementof
@@ -875,7 +875,7 @@ persons/workers</content>
         </region>
     </table>
     <table id="5">
-        <region col-increment="0" id="1" row-increment="0" pageArea='2'>
+        <region col-increment="0" id="1" row-increment="0" page='2'>
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="316" x2="382" y1="745" y2="762"/>
                 <content>Treatyreform/IGC/

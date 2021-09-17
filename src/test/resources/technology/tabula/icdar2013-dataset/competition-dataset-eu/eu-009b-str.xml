@@ -2,7 +2,7 @@
 <document filename="bm_eu-009-str.xml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="competition-entry-structure-model.xsd">
     <table id="1">
-        <region col-increment="0" id="1" pageArea="1" row-increment="-1">
+        <region col-increment="0" id="1" page="1" row-increment="-1">
             <cell end-col="1" id="1" start-col="0" start-row="1">
                 <bounding-box x1="164" x2="265" y1="505" y2="515"/>
                 <content>JASPERS Categories</content>

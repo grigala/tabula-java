@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document filename="bm_eu-020-str.xml">
     <table id="1">
-        <region col-increment="0" id="1" row-increment="0" pageArea='2'>
+        <region col-increment="0" id="1" row-increment="0" page='2'>
             <cell id="1" start-col="0" start-row="0">
                 <bounding-box x1="72" x2="142" y1="426" y2="437"/>
                 <content>Faculty cluster</content>
@@ -229,7 +229,7 @@
         </region>
     </table>
     <table id="2">
-        <region col-increment="0" id="1" row-increment="0" pageArea='2'>
+        <region col-increment="0" id="1" row-increment="0" page='2'>
             <cell id="1" start-col="0" start-row="0" end-row="1">
                 <bounding-box x1="62" x2="126" y1="190" y2="199"/>
                 <content>Facultycluster</content>
@@ -486,7 +486,7 @@
         </region>
     </table>
     <table id="3">
-        <region col-increment="0" id="1" row-increment="0" pageArea='3'>
+        <region col-increment="0" id="1" row-increment="0" page='3'>
             <cell id="1" start-col="0" start-row="0" end-row="1">
                 <bounding-box x1="62" x2="126" y1="482" y2="491"/>
                 <content>Facultycluster</content>
